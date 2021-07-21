@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-// TODO: Auto-generated Javadoc
 /**
  * Instantiates a new search result.
  */
@@ -23,68 +22,43 @@ import lombok.ToString;
  * @param indices the indices
  */
 @AllArgsConstructor
-
-/**
- * Instantiates a new person.
- */
-
-/**
- * Instantiates a new search result.
- */
-
-/**
- * Instantiates a new search result.
- */
 @NoArgsConstructor
 
-/**
- * Gets the indices.
- *
- * @return the indices
- */
-
-/**
- * Gets the indices.
- *
- * @return the indices
- */
-@Getter
-
-/**
- * Sets the indices.
- *
- * @param indices the new indices
- */
-
-/**
- * Sets the indices.
- *
- * @param indices the new indices
- */
-@Setter
-
-/**
- * To string.
- *
- * @return the java.lang. string
- */
-
-/**
- * To string.
- *
- * @return the java.lang. string
- */
 @ToString
 @ApiModel
 public class SearchResult {
 	
+	public String getSubText() {
+		return subText;
+	}
+
+	public void setSubText(String subText) {
+		this.subText = subText;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public List<Integer> getIndices() {
+		return indices;
+	}
+
+	public void setIndices(List<Integer> indices) {
+		this.indices = indices;
+	}
+
 	/** The sub text. */
 	@ApiModelProperty
-	String subText;
+	private String subText;
 	
 	/** The text. */
 	@ApiModelProperty
-	String text;
+	private String text;
 
 	/** The indices. */
 	@ApiModelProperty

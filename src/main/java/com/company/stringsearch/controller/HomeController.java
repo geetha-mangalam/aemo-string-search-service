@@ -19,13 +19,13 @@ import lombok.extern.log4j.Log4j2;
 
 /** The Constant log. */
 @Log4j2
-public class HomeController {
+public class HomeController  extends GenericController{
 
 	@GetMapping
 	public ResponseEntity<String> hello() throws Exception {
 
 		// Send response to client
-		return new ResponseEntity<>("Hello from Search Service", HttpStatus.OK);
+		return new ResponseEntity<>("Hello from Search Service. Please enter /swagger-ui.html to access client", HttpStatus.OK);
 	}
 
 	/**
