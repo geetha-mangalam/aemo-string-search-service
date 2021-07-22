@@ -66,9 +66,20 @@ class StringSearchApplicationControllerTest {
 	@Order(1)
 	@Test
 	public void testSearch() throws Exception {
-		String text = "123";
-		String subText = "0";
-		List<Integer> indices = java.util.Arrays.asList(0);
+
+		testSearch("123", "1", java.util.Arrays.asList(0));
+		testSearch("During the interview, we will ask you to walk us through your solution. This test provides an opportunity for the candidate to showcase their understanding of software development",
+				"the", java.util.Arrays.asList(7, 110, 136));
+		testSearch("Hello from Hello Service", "hello", java.util.Arrays.asList(0,11));
+		testSearch("Hello from Hello Service", "Hello", java.util.Arrays.asList(0,11));
+
+		testSearch("Hello from hello Service", "hello", java.util.Arrays.asList(0,11));
+		testSearch("Build and deploy JAR app to Azure Web App", "jar", java.util.Arrays.asList(17));
+		testSearch("Build and deploy JAR app to Azure Web App", "app", java.util.Arrays.asList(21, 38));
+		testSearch("Build and deploy JAR app to Azure Web App", "Google", java.util.Arrays.asList());
+	}
+	
+	private void testSearch(String text, String subText, List<Integer> indices ) throws Exception {
 		SearchResult searchResult = new SearchResult(subText, text, indices);
 		//TODO this issue has to be resolved.
 		//No converter for [class  with preset Content-Type 'null'
@@ -83,6 +94,9 @@ class StringSearchApplicationControllerTest {
 		String resultStr = mvcResult.getResponse().getContentAsString();
 
 		assertNotNull(resultStr);
+		// TODO convert to list and check the size of list as per expectation
+		
+		// TODO check if all indices of occurences are part of the list
 	}
 
 }
